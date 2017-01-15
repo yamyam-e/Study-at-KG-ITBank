@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;files_js&apos; to &apos;resources&apos;&#x0D;&#x0A;- Original project: &apos;Spring14_SMVC_Mybatis&apos;&#x0D;&#x0A;- Destination element: &apos;resources&apos;&#x0D;&#x0A;- Original element: &apos;files_js&apos;" description="Copy folder" element1="src/main/webapp/resources/files_js" files="0" flags="589830" folders="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1479208997569" target="/Spring01_SMVC_Wedding/src/main/webapp/resources" units="0" version="1.0"/>
+</session>

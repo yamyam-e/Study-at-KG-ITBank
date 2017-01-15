@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;SpringEX02_SMVC_Mybatis/src/main/resources/context_config/context-config.xml&apos; to &apos;jdbc-config.xml&apos;" description="Rename resource &apos;context-config.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/resources/context_config/context-config.xml" name="jdbc-config.xml" stamp="1478176276588" updateReferences="true"/>
+</session>

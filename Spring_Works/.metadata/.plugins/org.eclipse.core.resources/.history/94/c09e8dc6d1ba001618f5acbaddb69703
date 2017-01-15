@@ -1,0 +1,268 @@
+package spring.mvc.wedding;
+
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+import spring.mvc.wedding.dto.LogDTO;
+import spring.mvc.wedding.dto.PageDTO;
+import spring.mvc.wedding.dto.RegistryCartDTO;
+import spring.mvc.wedding.dto.RegistryFriendsDTO;
+import spring.mvc.wedding.dto.RegistryProductDTO;
+import spring.mvc.wedding.dto.SaleDTO;
+import spring.mvc.wedding.dto.giftDTO;
+import spring.mvc.wedding.dto.gift_cartDTO;
+import spring.mvc.wedding.repository.RegistryCartRepository;
+import spring.mvc.wedding.repository.RegistryProductRepository;
+
+@Controller
+public class RegistryCartController {
+	
+	@Autowired
+	private RegistryCartRepository repository;
+	
+	// 상품구매
+	@RequestMapping(value="regProductBuy", method=RequestMethod.POST)
+	public ModelAndView regProductBuy(
+			HttpSession session,
+			@RequestParam(value="name",required=false) String name,
+			@RequestParam(value="type",required=false) String type,
+			@RequestParam(value="price",required=false) Integer price,
+			@RequestParam(value="buyquantity",required=false) Integer buyquantity,
+			@RequestParam(value="quantity", required=false) Integer quantity,
+			@RequestParam(value="num", required=false) Integer num,
+			ModelMap mmap){
+		
+		String email = ((LogDTO)session.getAttribute("nowLogin")).getEmail();
+		Integer total = price * buyquantity;
+		
+		String paycheck = "";
+	    RegistryCartDTO regcDTO = new RegistryCartDTO(name, email, type, buyquantity, price, total, paycheck);
+	    int res = repository.regInsertOneCart(regcDTO);
+	    if(res>0){
+	       mmap.addAttribute("msg", "레지스트리 목록에 등록되었습니다.");
+	    }else{
+	       mmap.addAttribute("msg", "실패");
+	    }
+	    
+	    RegistryProductDTO regDTO = new RegistryProductDTO();
+	    regDTO.setQuantity(quantity-buyquantity);
+	    regDTO.setNum(num);
+	     
+	    res = repository.update(regDTO);
+	     
+	    List<giftDTO> listc = repository.selectList(type);
+	    
+		
+		ModelAndView mav = new ModelAndView("home");
+		return mav;
+	}
+	
+//  선물구매
+  @RequestMapping(value="gift_Buy", method=RequestMethod.POST)
+  public ModelAndView gift_Buy(
+           HttpSession session,
+           @RequestParam(value="name",required=false) String name,
+           @RequestParam(value="type",required=false) String type,
+           @RequestParam(value="price",required=false) Integer price,
+           @RequestParam(value="buyquantity",required=false) Integer buyquantity,
+           @RequestParam(value="quantity", required=false) Integer quantity,
+           @RequestParam(value="num", required=false) Integer num,
+           ModelMap mmap){
+     
+     LogDTO dto = (LogDTO)session.getAttribute("nowLogin");
+     String email = dto.getEmail();
+     
+     Integer total = price * buyquantity;
+     
+     String paycheck = "";
+     gift_cartDTO gcDto = new gift_cartDTO(name, email, type, buyquantity, price, total, paycheck);
+     int res = repository.insert_giftCart(gcDto);
+     if(res>0){
+        mmap.addAttribute("msg", "장바구니에 등록되었습니다.");
+     }else{
+        mmap.addAttribute("msg", "실패");
+     }
+     
+     giftDTO gDto = new giftDTO();
+     gDto.setQuantity(quantity-buyquantity);
+     gDto.setNum(num);
+     
+     res = repository.updateGift_quantity(gDto);
+     
+     List<giftDTO> listc = repository.selectList(type);
+     
+     ModelAndView mav = new ModelAndView();
+     mav.addObject("gift_"+type, listc);
+     mav.setViewName("home");
+     
+     return mav;
+  }
+	
+	
+	@RequestMapping("regPayCardModalOne")
+	public ModelAndView regPayCardModalOne(@RequestParam(value="num", required=false) Integer num,
+	         								ModelMap mmap, HttpSession session, PageDTO pDTO){
+
+		System.out.println("regPayCardModalOne.....working");
+		  
+		RegistryCartDTO dto = repository.regSelectOneCart(num);
+		
+		String email = ((LogDTO)session.getAttribute("nowLogin")).getEmail();
+		
+		List<RegistryCartDTO> listcTemp = repository.selectAllCart(email);
+		int total = regTotal(listcTemp);
+		mmap.addAttribute("regTotal", total);
+		
+		int cntRecord = repository.countCart(email);
+		pDTO.pageWorks(cntRecord);
+		List<RegistryCartDTO> listc = repository.regSelectCartPageView(pDTO);
+		mmap.addAttribute("regSelectAllCart", listc);
+		mmap.addAttribute("pageDTO", pDTO);
+		  
+		ModelAndView mav = new ModelAndView("home");
+		mav.addObject("regCartDTO", dto);
+		  
+		return mav;
+	 }
+	
+	@RequestMapping("regPayCardModalSome")
+	public ModelAndView regPayCardModalSome(ModelMap mmap, HttpSession session, PageDTO pDTO){
+
+		System.out.println("regPayCardModalSome.....working");
+		
+		String email = ((LogDTO)session.getAttribute("nowLogin")).getEmail();
+		
+		List<RegistryCartDTO> listcTemp = repository.selectAllCart(email);
+		int total = regTotal(listcTemp);
+		mmap.addAttribute("regTotal", total);
+		
+		int cntRecord = repository.countCart(email);
+		pDTO.pageWorks(cntRecord);
+		List<RegistryCartDTO> listc = repository.regSelectCartPageView(pDTO);
+		mmap.addAttribute("regSelectAllCart", listc);
+		mmap.addAttribute("pageDTO", pDTO);
+		
+		ModelAndView mav = new ModelAndView("home");
+		mav.addObject("regPayTotal", "0");
+		
+		return mav;
+	 }
+	
+	@RequestMapping("regPayCardOne")
+	public ModelAndView regPayCardOne(@RequestParam("num") Integer num, ModelMap mmap, HttpSession session, PageDTO pDTO){
+		
+		System.out.println("regPayCardOne.....working");
+		
+		String email = ((LogDTO)session.getAttribute("nowLogin")).getEmail();
+		
+		int res = repository.regPayUpdate(num);
+		RegistryCartDTO dto = repository.regSelectOneCart(num);
+		SaleDTO sDTO = new SaleDTO();
+		sDTO.setName(dto.getpName());
+		sDTO.setCategory("registryProduct");
+		sDTO.setEmail(email);
+		sDTO.setPayment(dto.getpPrice());
+		sDTO.setQuantity(1);
+		res = repository.regPayCardOne(sDTO);
+		
+		List<RegistryCartDTO> listcTemp = repository.selectAllCart(email);
+		int total = regTotal(listcTemp);
+		mmap.addAttribute("regTotal", total);
+		
+		int cntRecord = repository.countCart(email);
+		pDTO.pageWorks(cntRecord);
+		List<RegistryCartDTO> listc = repository.regSelectCartPageView(pDTO);
+		mmap.addAttribute("regSelectAllCart", listc);
+		mmap.addAttribute("pageDTO", pDTO);
+		
+		ModelAndView mav = new ModelAndView("home");
+		return mav;
+	}
+	
+	@RequestMapping("regPayCardSome")
+	public ModelAndView regPayCardSome(@RequestParam("num") Integer num, ModelMap mmap, HttpSession session, PageDTO pDTO){
+		
+		System.out.println("regPayOneCart....working");
+		
+		String email = ((LogDTO)session.getAttribute("nowLogin")).getEmail();
+
+		RegistryCartDTO dto = repository.regSelectOneCart(num);
+		mmap.addAttribute("regCartDTO", dto);
+
+		List<RegistryCartDTO> listcTemp = repository.selectAllCart(email);
+		int total = regTotal(listcTemp);
+		mmap.addAttribute("regTotal", total);
+		
+		int cntRecord = repository.countCart(email);
+		pDTO.pageWorks(cntRecord);
+		List<RegistryCartDTO> listc = repository.regSelectCartPageView(pDTO);
+		mmap.addAttribute("regSelectAllCart", listc);
+		mmap.addAttribute("pageDTO", pDTO);
+		
+		ModelAndView mav = new ModelAndView("home");
+		return mav;
+	}
+	
+	@RequestMapping("regSelectAllCart")
+	public ModelAndView selectAll(ModelMap mmap, HttpSession session, PageDTO pDTO){
+		
+		System.out.println("regSelectAllCart.....working");
+	
+		String email = ((LogDTO)session.getAttribute("nowLogin")).getEmail();
+		
+		List<RegistryCartDTO> listcTemp = repository.selectAllCart(email);
+		int total = regTotal(listcTemp);
+		mmap.addAttribute("regTotal", total);
+		
+		int cntRecord = repository.countCart(email);
+		pDTO.pageWorks(cntRecord);
+		List<RegistryCartDTO> listc = repository.regSelectCartPageView(pDTO);
+		mmap.addAttribute("regSelectAllCart", listc);
+		mmap.addAttribute("pageDTO", pDTO);
+		
+		ModelAndView mav = new ModelAndView("home");
+		return mav;
+	}
+	
+	@RequestMapping("regDeleteOneCart")
+	public ModelAndView deleteOne(@RequestParam("num") String num, ModelMap mmap, HttpSession session, PageDTO pDTO){
+		
+		System.out.println("regDeleteOneCart.....working");
+		
+		int res = repository.regDeleteOneCart(num);
+		
+		String email = ((LogDTO)session.getAttribute("nowLogin")).getEmail();
+
+		List<RegistryCartDTO> listcTemp = repository.selectAllCart(email);
+		int total = regTotal(listcTemp);
+		mmap.addAttribute("regTotal", total);
+		
+		int cntRecord = repository.countCart(email);
+		pDTO.pageWorks(cntRecord);
+		List<RegistryCartDTO> listc = repository.regSelectCartPageView(pDTO);
+		mmap.addAttribute("regSelectAllCart", listc);
+		mmap.addAttribute("pageDTO", pDTO);
+		
+		ModelAndView mav = new ModelAndView("home");
+		return mav;
+	}
+	
+	public int regTotal(List<RegistryCartDTO> listc){
+		int total = 0;
+		for(RegistryCartDTO each : listc){
+			if(each.getPayCheck() == null){
+				total += each.getpSum();
+			}
+		}
+		return total;
+	}
+}

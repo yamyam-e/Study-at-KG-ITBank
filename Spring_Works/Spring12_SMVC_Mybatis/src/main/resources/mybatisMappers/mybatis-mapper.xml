@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <!-- 
+  	MyBatis SQL문 작성 주의사항 및 규칙
+  	- 세미콜론(;) 불가
+  	- getter()에 의한 접근이므로, getter()가 필수적으로 필요
+  	- 사용되는 bean의 필드 이름과 DB 테이블의 컬럼 이름을 일치화
+   -->
+   
+   <mapper namespace="peoplemapper">
+   
+   
+   
+   </mapper>

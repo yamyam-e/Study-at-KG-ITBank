@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;bean-context.xml&apos; to &apos;Spring08_SPJavaMaven_MyBatis/src/context_config&apos;&#x0D;&#x0A;- Original project: &apos;Spring08_SPJavaMaven_MyBatis&apos;&#x0D;&#x0A;- Destination element: &apos;Spring08_SPJavaMaven_MyBatis/src/context_config&apos;&#x0D;&#x0A;- Original element: &apos;bean-context.xml&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move file" destination="/src&lt;context_config" element1="src/mvc/dto/bean-context.xml" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1477645065384" units="0" version="1.0"/>
+</session>

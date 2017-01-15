@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;SpringEX06_SMVC_Mybatis/src/main/webapp/WEB-INF/views/home.jsp&apos; to &apos;home00.jsp&apos;" description="Rename resource &apos;home.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webapp/WEB-INF/views/home.jsp" name="home00.jsp" stamp="1478487993568" updateReferences="true"/>
+</session>

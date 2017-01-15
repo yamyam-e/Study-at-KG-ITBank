@@ -1,0 +1,71 @@
+package spring.mvc.wedding.repository;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import spring.mvc.wedding.dto.PageDTO;
+import spring.mvc.wedding.dto.RegistryCartDTO;
+import spring.mvc.wedding.dto.RegistryProductDTO;
+
+@Repository
+public class RegistryProductRepository {
+	
+	@Autowired
+	private SqlSession sqlSessionTemplate;
+
+	public int insertOne(RegistryProductDTO dto) {
+		return sqlSessionTemplate.insert("logMapper.regInsertOneProduct", dto);
+	}
+
+	public List<String> distinct() {
+		return sqlSessionTemplate.selectList("logMapper.regDistinctProduct");
+	}
+
+	public List<RegistryProductDTO> selectProductByType(String type) {
+		return sqlSessionTemplate.selectList("logMapper.regSelectProductByCategory", type);
+	}
+
+	public List<RegistryProductDTO> selectAll() {
+		return sqlSessionTemplate.selectList("logMapper.regSelectAllProduct");
+	}
+
+	public RegistryProductDTO regSelectOneProduct(int num) {
+		return sqlSessionTemplate.selectOne("logMapper.regSelectOneProduct", num);
+	}
+
+	public int registryProductListCnt() {
+		return sqlSessionTemplate.selectOne("logMapper.registryProductListCnt");
+	}
+
+	public List<RegistryProductDTO> regProductPageView(PageDTO pDTO) {
+		return sqlSessionTemplate.selectList("logMapper.regProductPageView", pDTO);
+	}
+
+	public List<Object> regProductOrderByPriceASC(String type) {
+		return sqlSessionTemplate.selectList("logMapper.regProductOrderByPriceASC", type);
+	}
+
+	public List<Object> regProductOrderByPriceDESC(String type) {
+		return sqlSessionTemplate.selectList("logMapper.regProductOrderByPriceASC", type);
+	}
+
+	public List<Object> regProductOrderByNameASC(String type) {
+		return sqlSessionTemplate.selectList("logMapper.regProductOrderByNameASC", type);
+	}
+	
+	public List<Object> regProductOrderByNameDESC(String type) {
+		return sqlSessionTemplate.selectList("logMapper.regProductOrderByNameDESC", type);
+	}
+
+	public List<RegistryProductDTO> regProductSearch(RegistryProductDTO regDTO) {
+		return sqlSessionTemplate.selectOne("logMapper.regProductSearch", regDTO);
+	}
+	
+	public int regInsertOneCart(RegistryCartDTO dto) {
+		return sqlSessionTemplate.insert("logMapper.regInsertOneCart", dto);
+	}
+
+}

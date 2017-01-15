@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="peoBean" class="p01_makeBean.People"></bean>
+	
+	<bean id="singleBean" class="p01_makeBean.People" scope="singleton"></bean>
+	
+	<bean id="protoBean" class="p01_makeBean.People" scope="prototype"></bean>
+	
+</beans>

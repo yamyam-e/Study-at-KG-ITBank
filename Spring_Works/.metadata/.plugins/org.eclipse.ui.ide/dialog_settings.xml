@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="CleanDialogSettings">
+		<item value="911" key="DIALOG_WIDTH"/>
+		<item value="true" key="TOGGLE_SELECTED"/>
+		<item value="540" key="DIALOG_HEIGHT"/>
+		<item value="825" key="DIALOG_X_ORIGIN"/>
+		<item value="400" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\SeongkwonMac\Desktop\Spring_Works\SpringHW08_SPJavaMaven_MyBatis"/>
+			<item value="C:\Users\SeongkwonMac\Desktop\Spring_Works\SpringHW06_SPJavaMaven_JDBC"/>
+			<item value="C:\Users\SeongkwonMac\Desktop\Spring_Works\SpringEX04_SMVC_Mybatis"/>
+			<item value="C:\Users\SeongkwonMac\Desktop\Spring_Works\SpringEx03_SMVC_Mybatis"/>
+			<item value="C:\Users\SeongkwonMac\Desktop\Spring_Works\SpringEX02_SMVC_MyBatis"/>
+			<item value="C:\Users\SeongkwonMac\Desktop\Spring_Works\SpringEX01_SMVC_Mybatis"/>
+			<item value="C:\Users\SeongkwonMac\Desktop\Spring_Works\Spring14_SMVC_Mybatis"/>
+			<item value="C:\Users\SeongkwonMac\Desktop\Spring_Works\Spring13_SMVC_MyBatis_Basic"/>
+			<item value="C:\Users\SeongkwonMac\Desktop\Spring_Works\Spring12_SMVC_Mybatis"/>
+			<item value="C:\Users\SeongkwonMac\Desktop\Spring_Works\Spring11_SMVC_JDBC"/>
+			<item value="C:\Users\SeongkwonMac\Desktop\Spring_Works\Spring10_SMVC"/>
+			<item value="C:\Users\SeongkwonMac\Desktop\Spring_Works\Spring09_DynWebMaven"/>
+			<item value="C:\Users\SeongkwonMac\Desktop\Spring_Works\Spring08_SPJavaMaven_MyBatis"/>
+			<item value="C:\Users\SeongkwonMac\Desktop\Spring_Works\Spring07_SPJavaMaven_JdbcTemplate"/>
+			<item value="C:\Users\SeongkwonMac\Desktop\Spring_Works\Spring06_SPJavaMaven_JDBC"/>
+			<item value="C:\Users\SeongkwonMac\Desktop\Spring_Works\Spring05_SPJavaMaven_AOP"/>
+			<item value="C:\Users\SeongkwonMac\Desktop\Spring_Works\Spring04_SPJavaMaven_Annotation"/>
+			<item value="C:\Users\SeongkwonMac\Desktop\Spring_Works\Spring03_SPJavaMaven_Basic"/>
+			<item value="C:\Users\SeongkwonMac\Desktop\Spring_Works\Spring02_SPJavaMaven_Basic"/>
+			<item value="C:\Users\SeongkwonMac\Desktop\Spring_Works\Spring01_SPJava_intro"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+	<section name="NewWizardAction">
+	</section>
+	<section name="org.eclipse.ui.dialogs.FilteredResourcesSelectionDialog">
+		<item value="false" key="FilterByLocation"/>
+		<item value="true" key="ShowStatusLine"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History&gt;&#x0D;&#x0A;&lt;historyRootNode/&gt;&#x0D;&#x0A;&lt;/History&gt;" key="History"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;workingSet workingSetName=&quot;&quot;/&gt;" key="WorkingSet"/>
+		<item value="false" key="ShowDerived"/>
+		<section name="DialogBoundsSettings">
+			<item value="600" key="DIALOG_WIDTH"/>
+			<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-24|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
+			<item value="500" key="DIALOG_HEIGHT"/>
+			<item value="993" key="DIALOG_X_ORIGIN"/>
+			<item value="440" key="DIALOG_Y_ORIGIN"/>
+		</section>
+	</section>
+</section>

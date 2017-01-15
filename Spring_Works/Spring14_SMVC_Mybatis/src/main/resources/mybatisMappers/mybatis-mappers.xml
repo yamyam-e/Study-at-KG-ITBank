@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="logMapper">
+  
+  	<select id="selectOne" parameterType="log" resultType="log">
+  		select * from t_log where id=#{id} and pw=#{pw}
+  	</select>
+  	<select id="checkID" parameterType="String" resultType="log">
+  		select * from t_log where id=#{id}
+  	</select>
+  	<insert id="insertOne" parameterType="log">
+  		insert into t_log values(#{id}, #{pw})
+  	</insert>
+  
+  </mapper>

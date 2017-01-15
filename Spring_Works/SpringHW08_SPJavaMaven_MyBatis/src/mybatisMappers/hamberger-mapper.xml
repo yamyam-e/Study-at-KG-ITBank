@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="hambergerMapper">
+  
+  	<insert id="insertOne" parameterType="mvc.dto.HambergerDTO">
+  		insert into t_ham 
+  		values(t_ham_seq.nextval, #{name}, #{price}, #{cal})
+  	</insert>
+  	
+  	<select id="selectList" resultType="ham">
+  		select * from t_ham order by num
+  	</select>
+  	
+  	<select id="searchByString" parameterType="String" resultType="ham">
+		select * from t_ham where name = #{search}  	
+  	</select>
+  	
+  	<select id="searchByInteger" parameterType="Integer" resultType="ham">
+  		select * from t_ham where num = #{search}
+  	</select>
+  	
+  	<select id="searchByDto" parameterType="mvc.dto.HambergerDTO" resultType="ham">
+  		select * from t_ham where name = #{name}
+  	</select>
+  	
+  	<select id="selectListByRange" parameterType="mapper" resultType="ham">
+  		<![CDATA[select * from t_ham where price >= #{start} and price <= #{end}
+  						order by price asc]]>
+  	</select>
+  	
+  	<select id="selectOneByColName" parameterType="mapper" resultType="ham">
+  		select * from ${tableName} where ${colName} = #{value}
+  	</select>
+  	
+  	<select id="selectListByKeyWord" parameterType="String" resultType="ham">
+  		select * from t_ham where name like '%${value}%'
+  	</select>
+  	
+  	<update id="update" parameterType="ham">
+  		update t_ham set price = #{price} where name = #{name}
+  	</update>
+  	
+  	<delete id="delete" parameterType="ham">
+  		delete from t_ham where name = #{name}
+  	</delete>
+  	
+  	<!-- 
+  	삭제 : <delete id=""></delete>
+  	수정 : <update id=""></update>
+  	 -->
+  </mapper>

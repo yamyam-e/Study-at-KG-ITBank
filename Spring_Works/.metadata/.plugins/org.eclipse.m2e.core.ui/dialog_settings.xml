@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+		<list key="ciManagementUrl">
+		</list>
+		<list key="ciManagementSystem">
+		</list>
+		<list key="issueManagementSystem">
+		</list>
+		<list key="issueManagementUrl">
+		</list>
+	</section>
+	<section name="wizardPage">
+		<list key="groupId">
+			<item value="Spring09_DynWebMaven"/>
+			<item value="SpringHW08_SPJavaMaven_MyBatis"/>
+			<item value="Spring08_SPJavaMaven_MyBatis"/>
+			<item value="Spring07_SPJavaMaven_JdbcTemplate"/>
+			<item value="SpringHW01_SPJavaMaven_JDBC"/>
+			<item value="Spring06_SPJavaMaven_JDBC"/>
+			<item value="Spring05_SPJavaMaven_AOP"/>
+			<item value="Spring04_SPJavaMaven_Annotation"/>
+			<item value="Spring03_SPJavaMaven_Basic"/>
+			<item value="Spring02_SPJavaMaven_Basic"/>
+			<item value="Spring02_SPJavaMaven"/>
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+			<item value="Spring09_DynWebMaven"/>
+			<item value="SpringHW08_SPJavaMaven_MyBatis"/>
+			<item value="Spring08_SPJavaMaven_MyBatis"/>
+			<item value="Spring07_SPJavaMaven_JdbcTemplate"/>
+			<item value="SpringHW01_SPJavaMaven_JDBC"/>
+			<item value="Spring06_SPJavaMaven_JDBC"/>
+			<item value="Spring05_SPJavaMaven_AOP"/>
+			<item value="Spring04_SPJavaMaven_Annotation"/>
+			<item value="Spring03_SPJavaMaven_Basic"/>
+			<item value="Spring02_SPJavaMaven_Basic"/>
+			<item value="Spring02_SPJavaMaven"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+</section>

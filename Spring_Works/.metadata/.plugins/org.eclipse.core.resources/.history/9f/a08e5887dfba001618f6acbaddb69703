@@ -1,0 +1,57 @@
+package spring.mvc.wedding.repository;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import spring.mvc.wedding.dto.PageDTO;
+import spring.mvc.wedding.dto.RegistryCartDTO;
+import spring.mvc.wedding.dto.RegistryProductDTO;
+import spring.mvc.wedding.dto.SaleDTO;
+
+@Repository
+public class RegistryCartRepository {
+
+	@Autowired
+	private SqlSession sqlSessionTemplate;
+
+	public int regInsertOneCart(RegistryCartDTO dto) {
+		return sqlSessionTemplate.insert("logMapper.regInsertOneCart", dto);
+	}
+	
+	public List<RegistryCartDTO> selectAllCart(String email) {
+		return sqlSessionTemplate.selectList("logMapper.regSelectAllCart", email);
+	}
+
+	public int countCart(String email) {
+		return sqlSessionTemplate.selectOne("logMapper.regCountCart", email);
+	}
+
+
+	public int regDeleteOneCart(String num) {
+		return sqlSessionTemplate.delete("logMapper.regDeleteOneCart", num);
+	}
+
+	public int regPayUpdate(Integer num) {
+		return sqlSessionTemplate.update("logMapper.regPayUpdate", num);
+	}
+
+	public RegistryCartDTO regSelectOneCart(Integer num) {
+		return sqlSessionTemplate.selectOne("logMapper.regSelectOneCart", num);
+	}
+
+	public int regPayCardOne(SaleDTO dto) {
+		return sqlSessionTemplate.insert("logMapper.regPayCardOne", dto);
+	}
+
+	public int findCoupleRowCnt(String email) {
+		return sqlSessionTemplate.selectOne("logMapper.findCoupleRowCnt", email);
+	}
+
+	public List<RegistryCartDTO> regSelectCartPageView(PageDTO dto) {
+		return sqlSessionTemplate.selectList("logMapper.regSelectCartPageView", dto);
+	}
+
+}

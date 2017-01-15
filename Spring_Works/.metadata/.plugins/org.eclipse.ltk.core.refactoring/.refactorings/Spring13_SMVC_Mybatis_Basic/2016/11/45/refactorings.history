@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;UserLibrary&apos; to &apos;Spring14_SMVC_Mybatis&apos;&#x0D;&#x0A;- Original project: &apos;Spring13_SMVC_Mybatis_Basic&apos;&#x0D;&#x0A;- Destination element: &apos;Spring14_SMVC_Mybatis&apos;&#x0D;&#x0A;- Original element: &apos;UserLibrary&apos;" description="Copy folder" destination="=Spring14_SMVC_Mybatis" element1="UserLibrary" files="0" flags="589830" folders="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1478155758623" units="0" version="1.0"/>
+</session>

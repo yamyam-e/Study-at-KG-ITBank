@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
+	
+	<bean id="divBean" class="p02_model01.J03_DivCla"/>
+	
+	<bean id="modBean" class="p02_model01.J03_ModCla"/>
+	
+	<bean id="adviceBean" class="p02_model01.J04_AdviceCla"/>
+	
+	<bean id="aspectBean" class="org.springframework.aop.aspectj.AspectJExpressionPointcutAdvisor">
+		<property name="advice" ref="adviceBean"/>
+		<property name="expression" value="execution(public * *(..))">
+	</property>
+	</bean>
+	
+	<!-- pointcut expression 알아 보기 -->
+	
+</beans>

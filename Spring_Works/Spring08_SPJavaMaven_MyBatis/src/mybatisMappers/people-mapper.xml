@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <!-- 
+  	MyBatis SQL문 작성 주의사항 및 규칙
+  	- 세미콜론(;) 불가
+  	- getter()에 의한 접근이므로, getter()가 필수적으로 필요
+  	- 사용되는 bean의 필드 이름과 DB 테이블의 컬럼 이름을 일치화
+   -->
+  
+  <mapper namespace="peopleMapper">
+  
+  	<insert id="insertOne" parameterType="mvc.dto.PeopleDTO">
+  		insert into t_peo
+  		values(t_peo_seq.nextval, #{name}, #{age})
+  	</insert>
+  	
+  	<select id="selectList" resultType="pp">
+  		select * from t_peo order by num desc
+  	</select>
+  	
+  	<select id="searchName1" parameterType="String" resultType="pp">
+  		select * from t_peo where name=#{search}
+  	</select>
+  	
+  	<select id="searchName2" parameterType="pp" resultType="pp">
+  		select * from t_peo where name=#{name}
+  	</select>
+  	<!-- 중복 이름이 있으면 에러 발생 -->
+  	
+  	<select id="searchArea" parameterType="mm" resultType="pp">
+  	
+  		<![CDATA[select * from t_peo where age >= #{beginAge} and age <= #{endAge}]]>
+  		
+  	</select>
+  	
+  	<select id="searchSQL" parameterType="mm" resultType="pp">
+  		select * from ${tableName} where ${colName} = #{value}
+  	</select>
+  	
+  	<select id="searchKey" parameterType="mm" resultType="pp">
+  		select * from t_peo where name like '%${value}%'
+  	</select>
+  	
+  	<select id="searchName00" parameterType="Integer" resultType="pp">
+  		select * from t_peo where num=#{num}
+  	</select>
+  	
+  	<!-- 
+  	삭제 : <delete id=""></delete>
+  	수정 : <update id=""></update>
+  	-->
+  
+  </mapper>

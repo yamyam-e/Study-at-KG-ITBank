@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;p03_intro&apos; to &apos;Spring02_SPJavaMaven_Basic/src&apos;&#x0D;&#x0A;- Original project: &apos;Spring02_SPJavaMaven&apos;&#x0D;&#x0A;- Destination element: &apos;Spring02_SPJavaMaven_Basic/src&apos;&#x0D;&#x0A;- Original element: &apos;Spring02_SPJavaMaven/src/p03_intro&apos;" description="Copy package" destination="=Spring02_SPJavaMaven_Basic/src" element1="/src&lt;p03_intro" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1477556493294" version="1.0"/>
+</session>

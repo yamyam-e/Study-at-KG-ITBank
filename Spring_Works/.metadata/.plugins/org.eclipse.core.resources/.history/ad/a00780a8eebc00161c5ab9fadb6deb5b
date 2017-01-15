@@ -1,0 +1,43 @@
+package spring.mvc.wedding.dto;
+
+public class savedPointDTO {
+	private Integer num;
+	private String email;
+	private Integer point;
+	private String pointFromSomeone;public savedPointDTO() {
+	}
+	public savedPointDTO(String email, Integer point, String pointFromSomeone) {
+		this.email = email;
+		this.point = point;
+		this.pointFromSomeone = pointFromSomeone;
+	}
+	public savedPointDTO(Integer num, String email, Integer point, String pointFromSomeone) {
+		this.num = num;
+		this.email = email;
+		this.point = point;
+		this.pointFromSomeone = pointFromSomeone;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public Integer getPoint() {
+		return point;
+	}
+	public void setPoint(Integer point) {
+		this.point = point;
+	}
+	public String getPointFromSomeone() {
+		return pointFromSomeone;
+	}
+	public void setPointFromSomeone(String pointFromSomeone) {
+		this.pointFromSomeone = pointFromSomeone;
+	}
+	@Override
+	public String toString() {
+		return "savedPointDTO [num=" + num + ", email=" + email + ", point=" + point + ", pointFromSomeone="
+				+ pointFromSomeone + "]";
+	}
+}

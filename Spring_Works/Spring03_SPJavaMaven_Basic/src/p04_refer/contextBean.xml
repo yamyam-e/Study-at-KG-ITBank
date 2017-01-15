@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="bbb" class="p04_refer.J02_BBB" p:data="bbb빈의 데이터"/>
+	<!-- 기본자료형 값을 저장할 때에는 필드 이름만으로 입력 -->
+	
+	<bean id="aaa" class="p04_refer.J02_AAA" p:bbb-ref="bbb"/>
+	<!-- 필드에 빈을 연결하는 경우 ***-ref를 사용한다. -->
+	
+</beans>

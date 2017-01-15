@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="m01" class="p03_constructor.J02_Milk">
+		<constructor-arg name="name" value="바나나우유"/>
+		<constructor-arg name="price" value="400"/>
+	</bean>
+	
+	<bean id="m02" class="p03_constructor.J02_Milk">
+	
+		<constructor-arg index="0" value="딸기우유"/>
+		<constructor-arg index="1" value="600"/>
+	</bean>
+	
+	<bean id="m03" class="p03_constructor.J02_Milk" c:name="쵸코우유" c:price="500"/>
+
+</beans>

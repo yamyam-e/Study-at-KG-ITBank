@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="Spring05_SPJavaMaven_AOP">
+<aspect-definition advice-class-name="p03_model02.J04_AspectCla" advice-method-name="joinPointWorks(org.aspectj.lang.ProceedingJoinPoint)" advice-type="AROUND" aspect-end-line-number="10" aspect-name="j04_AspectCla" aspect-start-line-number="10" factory-id="org.springframework.ide.eclipse.aop.core.annotationAspectDefinitionElementFactory" file="/Spring05_SPJavaMaven_AOP/src/p03_model02/contextBean.xml" pointcut-expression="targetMethod()" proxy-target-class="false">
+<aop-reference advice-type="AROUND" bean="1:BeansModel|2:Spring05_SPJavaMaven_AOP|3:src/p03_model02/contextBean.xml|7:beans:8|8:modBean:8" bean-file="/Spring05_SPJavaMaven_AOP/src/p03_model02/contextBean.xml" bean-start-line="8" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/Spring05_SPJavaMaven_AOP/src/p03_model02/contextBean.xml" source="=Spring05_SPJavaMaven_AOP/src&lt;p03_model02{J04_AspectCla.java[J04_AspectCla~joinPointWorks~QProceedingJoinPoint;" source-start-line="19" target="=Spring05_SPJavaMaven_AOP/src&lt;p03_model02{J03_ModCla.java[J03_ModCla~coreWorks" target-start-line="11"/>
+<aop-reference advice-type="AROUND" bean="1:BeansModel|2:Spring05_SPJavaMaven_AOP|3:src/p03_model02/contextBean.xml|7:beans:8|8:divBean:8" bean-file="/Spring05_SPJavaMaven_AOP/src/p03_model02/contextBean.xml" bean-start-line="8" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/Spring05_SPJavaMaven_AOP/src/p03_model02/contextBean.xml" source="=Spring05_SPJavaMaven_AOP/src&lt;p03_model02{J04_AspectCla.java[J04_AspectCla~joinPointWorks~QProceedingJoinPoint;" source-start-line="19" target="=Spring05_SPJavaMaven_AOP/src&lt;p03_model02{J03_DivCla.java[J03_DivCla~coreWorks" target-start-line="11"/>
+</aspect-definition>
+</aop-project>
+<aop-project name="SpringHW08_SPJavaMaven_MyBatis"/>
+<aop-project name="Spring15_SMVC_Template"/>
+<aop-project name="Spring01_SMVC_Wedding"/>
+<aop-project name="SpringEX03_SMVC_Mybatis"/>
+<aop-project name="Spring02_SPJavaMaven_Basic"/>
+<aop-project name="Spring13_SMVC_MyBatis_Basic"/>
+<aop-project name="SpringEX06_SMVC_Mybatis"/>
+<aop-project name="Spring09_DynWebMaven"/>
+<aop-project name="SpringEX04_SMVC_Mybatis"/>
+<aop-project name="Spring04_SPJavaMaven_Annotation"/>
+<aop-project name="SpringEX09_SMVC_Mybatis"/>
+<aop-project name="Spring01_SPJava_intro"/>
+<aop-project name="Spring12_SMVC_Mybatis"/>
+<aop-project name="Spring10_SMVC"/>
+<aop-project name="Spring06_SPJavaMaven_JDBC"/>
+<aop-project name="SpringEX05_SMVC_Mybatis"/>
+<aop-project name="SpringEX08_SMVC_Mybatis"/>
+<aop-project name="SpringHW06_SPJavaMaven_JDBC"/>
+<aop-project name="SpringEX02_SMVC_MyBatis"/>
+<aop-project name="Spring07_SPJavaMaven_JdbcTemplate"/>
+<aop-project name="SpringEX01_SMVC_Mybatis"/>
+<aop-project name="Spring14_SMVC_Mybatis"/>
+<aop-project name="SpringEX07_SMVC_Mybatis"/>
+<aop-project name="Spring11_SMVC_JDBC"/>
+<aop-project name="Spring00_SMVC_Mybatis"/>
+<aop-project name="Spring08_SPJavaMaven_MyBatis"/>
+<aop-project name="SpringPagingEX01"/>
+<aop-project name="Spring03_SPJavaMaven_Basic"/>
+</aop-reference-model>
